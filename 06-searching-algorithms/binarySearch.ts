@@ -3,13 +3,12 @@
 // returns index if value present or -1
 
 const binarySearch = function (arr: number[], value: number): number {
-  if (arr.length === 0) return -1;
   let left = 0;
   let right = arr.length - 1;
   // account for odd length of arrays
   let middle = Math.floor((left + right) / 2);
 
-  while (arr[middle] !== value) {
+  while (arr[middle] !== value && left <= right) {
     // console.log(left, middle, right);
     if (value < arr[middle]) {
       // move right to old middle - 1 since redundant to check same middle again
@@ -19,7 +18,10 @@ const binarySearch = function (arr: number[], value: number): number {
     // reset middle
     middle = Math.floor((left + right) / 2);
   }
-  return middle;
+  if (arr[middle] === value) {
+    return middle;
+  }
+  return -1;
 };
 
 // [1, 2, 3, 4, 5, 6, 7, 8, 9]
