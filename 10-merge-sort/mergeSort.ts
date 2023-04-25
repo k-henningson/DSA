@@ -1,4 +1,4 @@
-// solve this problem using a merge pattern
+// solve this problem using a merge sort pattern
 // time complexity 0(n log n)
 // space complexity 0(n)
 
