@@ -1,4 +1,6 @@
 // solve this problem using a merge pattern
+// time complexity 0(n log n)
+// space complexity 0(n)
 
 const merge = function (arr1: number[], arr2: number[]): number[] {
   let results: number[] = [];
@@ -27,7 +29,16 @@ const merge = function (arr1: number[], arr2: number[]): number[] {
   return results;
 };
 
-console.log(merge([1, 10, 50], [2, 14, 99, 100])); // [1, 2, 10, 14, 50, 99, 100]
-console.log(merge([], [1, 2])); // [1, 2]
-console.log(merge([], [])); // []
-console.log(merge([40, 50, 60, 70], [10, 20, 30])); // [10, 20, 30, 40, 50, 60, 70]
+const mergeSort = function (arr: number[]): number[] {
+  if (arr.length <= 1) return arr;
+  let mid = Math.floor(arr.length / 2);
+  // recursive until arr is less than 1 in length
+  let left = mergeSort(arr.slice(0, mid));
+  let right = mergeSort(arr.slice(mid));
+  return merge(left, right);
+};
+
+console.log(mergeSort([1, 99, 100, 2, 14, 10, 50])); // [1, 2, 10, 14, 50, 99, 100]
+console.log(mergeSort([2, 1])); // [1, 2]
+console.log(mergeSort([])); // []
+console.log(mergeSort([40, 50, 20, 60, 70, 10, 30])); // [10, 20, 30, 40, 50, 60, 70]
