@@ -7,3 +7,5 @@
 2. [Sorting Algorithms Animations](https://www.toptal.com/developers/sorting-algorithms)
 
 3. [Visualgo Sorting](https://visualgo.net/en/sorting)
+
+4. [Comparison Sort](https://en.wikipedia.org/wiki/Comparison_sort)
