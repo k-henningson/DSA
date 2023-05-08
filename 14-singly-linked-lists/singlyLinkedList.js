@@ -30,6 +30,35 @@ class SinglyLinkedList {
     this.length++;
     return this;
   }
+  // traverse() {
+  //   let current = this.head;
+  //   while (current) {
+  //     console.log("Traverse current: ", current.val);
+  //     current = current.next;
+  //   }
+  // }
+  pop() {
+    // if no nodes return undefined
+    if (!this.head) return undefined;
+    // loop through list until you reach tail, keep track of 2nd to last node
+    let current = this.head;
+    let newTail = current;
+    while (current.next) {
+      newTail = current;
+      current = current.next;
+    }
+    // set tail to be 2nd to last node
+    this.tail = newTail;
+    this.tail.next = null;
+    // decrement length
+    this.length--;
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+    // return value of node removed
+    return current;
+  }
 }
 
 const list = new SinglyLinkedList();
@@ -38,6 +67,13 @@ list.push("HELLO");
 console.log(list);
 list.push("GOODBYE");
 console.log(list);
+list.push("TOODLES");
+console.log(list);
+// list.traverse();
+console.log("Pop: ", list.pop()); // TOODLES
+console.log("Pop: ", list.pop()); // GOODBYE
+console.log("Pop: ", list.pop()); // HELLO
+console.log("Pop: ", list.pop()); // Undefined
 
 // const first = new Node("Hi");
 // first.next = new Node("there");
