@@ -59,6 +59,20 @@ class SinglyLinkedList {
     // return value of node removed
     return current;
   }
+  shift() {
+    // if no nodes return undefined
+    if (!this.head) return undefined;
+    // store the current head property in a variable
+    let currentHead = this.head;
+    // set new head to be next head
+    this.head = currentHead.next;
+    // decrement length
+    this.length--;
+    if (this.length === 0) {
+      this.tail = null;
+    }
+    return currentHead;
+  }
 }
 
 const list = new SinglyLinkedList();
@@ -70,10 +84,14 @@ console.log(list);
 list.push("TOODLES");
 console.log(list);
 // list.traverse();
-console.log("Pop: ", list.pop()); // TOODLES
-console.log("Pop: ", list.pop()); // GOODBYE
-console.log("Pop: ", list.pop()); // HELLO
-console.log("Pop: ", list.pop()); // Undefined
+// console.log("Pop: ", list.pop()); // TOODLES
+// console.log("Pop: ", list.pop()); // GOODBYE
+// console.log("Pop: ", list.pop()); // HELLO
+// console.log("Pop: ", list.pop()); // Undefined
+console.log("Shift: ", list.shift()); // HELLO
+console.log("Shift: ", list.shift()); // GOODBYE
+console.log("Shift: ", list.shift()); // TOODLES
+console.log("Shift: ", list.shift()); // Undefined
 
 // const first = new Node("Hi");
 // first.next = new Node("there");
