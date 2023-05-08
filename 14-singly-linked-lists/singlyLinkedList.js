@@ -14,6 +14,7 @@ class SinglyLinkedList {
     this.tail = null;
     this.length = 0;
   }
+
   push(val) {
     // create a new node using the value passed
     const newNode = new Node(val);
@@ -30,6 +31,7 @@ class SinglyLinkedList {
     this.length++;
     return this;
   }
+
   // traverse() {
   //   let current = this.head;
   //   while (current) {
@@ -37,6 +39,7 @@ class SinglyLinkedList {
   //     current = current.next;
   //   }
   // }
+
   pop() {
     // if no nodes return undefined
     if (!this.head) return undefined;
@@ -59,6 +62,7 @@ class SinglyLinkedList {
     // return value of node removed
     return current;
   }
+
   shift() {
     // if no nodes return undefined
     if (!this.head) return undefined;
@@ -72,6 +76,22 @@ class SinglyLinkedList {
       this.tail = null;
     }
     return currentHead;
+  }
+  unshift(val) {
+    // create new node using value passed
+    let newNode = new Node(val);
+    // if no head on list set head and tail to be newNode
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = this.head;
+    } else {
+      // set newNode next property pointer to be current head property in the list
+      newNode.next = this.head;
+      // made newNode new head of list
+      this.head = newNode;
+    }
+    this.length++;
+    return this;
   }
 }
 
@@ -88,10 +108,13 @@ console.log(list);
 // console.log("Pop: ", list.pop()); // GOODBYE
 // console.log("Pop: ", list.pop()); // HELLO
 // console.log("Pop: ", list.pop()); // Undefined
-console.log("Shift: ", list.shift()); // HELLO
-console.log("Shift: ", list.shift()); // GOODBYE
-console.log("Shift: ", list.shift()); // TOODLES
-console.log("Shift: ", list.shift()); // Undefined
+// console.log("Shift: ", list.shift()); // HELLO
+// console.log("Shift: ", list.shift()); // GOODBYE
+// console.log("Shift: ", list.shift()); // TOODLES
+// console.log("Shift: ", list.shift()); // Undefined
+console.log("Unshift: ", list.unshift("NewNode1"));
+console.log("Unshift: ", list.unshift("NewNode2"));
+console.log("Unshift: ", list.unshift("NewNode3"));
 
 // const first = new Node("Hi");
 // first.next = new Node("there");
